@@ -1,0 +1,130 @@
+<section>
+    <div class="advantages">
+        <div class="container">
+            <div class="advantages__wrapper">
+                <div class="advantages__items">
+                    <div class="advantages__item">
+                        <div class="advantages__img">
+                            <img src="{{ asset('img/advantages/ad-1.png') }}" alt="" />
+                        </div>
+                        <div class="advantages__text">
+                            <p>Специализированный автосервис</p>
+                            {% if model is defined and model is not null %}
+                                <span
+                                >«Грац-Авто Мерседес» - автосервис по ремонту<br />
+                      и обслуживанию {{ model.brand.name}} {{ model.nameEn }} в Москве</span
+                                >
+                            {% elseif brand is defined and brand is not null %}
+                                <span
+                                >«Грац-Авто Мерседес» - автосервис по ремонту<br />
+                      и обслуживанию {{ brand.name}} в Москве</span
+                                >
+                            {% else %}
+                            <span
+                            >«Грац-Авто Мерседес» - автосервис по ремонту<br />
+                      и обслуживанию Mercedes-Benz в Москве</span
+                            >
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="advantages__item">
+                        <div class="advantages__img">
+                            <img src="{{ asset('img/advantages/ad-2.png') }}" alt="" />
+                        </div>
+                        <div class="advantages__text">
+                            <p>2 года гарантии</p>
+                            {% if model is defined and model is not null %}
+                                <span
+                                >На слесарный ремонт {{ model.brand.nameRu }} {{ model.nameRu }} мы предоставляем<br />
+                      гарантию до 900 дней</span
+                                >
+                            {% elseif brand is defined and brand is not null %}
+                                <span
+                                >На слесарный ремонт {{ brand.nameRu }} мы предоставляем<br />
+                      гарантию до 900 дней</span
+                                >
+                            {% else %}
+                            <span
+                            >На слесарный ремонт мы предоставляем<br />
+                      гарантию до 900 дней</span
+                            >
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="advantages__item">
+                        <div class="advantages__img">
+                            <img src="{{ asset('img/advantages/ad-2.png') }}" alt="" />
+                        </div>
+                        <div class="advantages__text">
+                            <p>склад запчастей</p>
+                            {% if model is defined and model is not null %}
+                                <span
+                                >Большинство автозапчастей<br />
+                      {{ model.brand.name}} {{ model.nameEn }} уже в наличии</span
+                                >
+                            {% elseif brand is defined and brand is not null %}
+                                <span
+                                >Большинство автозапчастей<br />
+                      {{ brand.name}} уже в наличии</span
+                                >
+                            {% else %}
+                            <span
+                            >Большинство автозапчастей<br />
+                      Mercedes-Benz уже в наличии</span
+                            >
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="advantages__item">
+                        <div class="advantages__img">
+                            <img src="{{ asset('img/advantages/ad-2.png') }}" alt="" />
+                        </div>
+                        <div class="advantages__text">
+                            <p>Честно считаем</p>
+                            <span
+                            >После диагностики называется<br />
+                      полная стоимость работ</span
+                            >
+                        </div>
+                    </div>
+                    <div class="advantages__item">
+                        <div class="advantages__img">
+                            <img src="{{ asset('img/advantages/ad-3.png') }}" alt="" />
+                        </div>
+                        <div class="advantages__text">
+                            <p>Дешевле дилера до 50%</p>
+                            <span
+                            >Стоимость ремонта дешевле,<br />
+                      а качество не хуже</span
+                            >
+                        </div>
+                    </div>
+                    <div class="advantages__item">
+                        <div class="advantages__img">
+                            <img src="{{ asset('img/advantages/ad-4.png') }}" alt="" />
+                        </div>
+                        <div class="advantages__text">
+                            <p>Скидки до 25%</p>
+                            {% if model is defined and model is not null %}
+                                <span
+                                >Скидка 20% при первом обращении и 25% на повторный ремонт
+                      и обслуживание {{ model.brand.nameRu }} {{ model.nameRu }}</span
+                                >
+                            {% elseif brand is defined and brand is not null %}
+                                <span
+                                >Скидка 20% при первом обращении и 25% на повторный ремонт
+                      и обслуживание {{ brand.nameRu }}</span
+                                >
+                            {% else %}
+                            <span
+                            >Скидка 20% при первом обращении и 25% на повторный ремонт
+                      и обслуживание</span
+                            >
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

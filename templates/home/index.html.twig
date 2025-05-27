@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+        {% block header %}
+            {{ include('elements/header/header.html.twig') }}
+        {% endblock %}
+
+        {% block body %}
+            {{ include('elements/blocks/hero.html.twig') }}
+
+            {{ include('elements/blocks/repair.html.twig') }}
+
+            {{ include('elements/blocks/services.html.twig') }}
+
+            {{ include('elements/blocks/about.html.twig') }}
+
+            {{ include('elements/blocks/promotions.html.twig') }}
+
+            {{ include('elements/blocks/reviews.html.twig') }}
+
+            {{ include('elements/blocks/price.html.twig') }}
+
+            {{ include('elements/forms/form.html.twig') }}
+
+            {{ include('elements/blocks/sertificates.html.twig') }}
+
+            {{ include('elements/blocks/advantages.html.twig') }}
+
+            {{ include('elements/footer/footer.html.twig') }}
+        {% endblock %}
+

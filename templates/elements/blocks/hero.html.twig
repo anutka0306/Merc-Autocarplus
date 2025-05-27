@@ -1,0 +1,52 @@
+<section>
+    <div class="main">
+        <div class="container">
+            <div class="main__wrapper">
+                <div class="main-top">
+                    <div class="main-top__left">
+                        <p>С ГАРАНТИЕЙ ДО 3 ЛЕТ</p>
+                        {% if (service is defined and service is not null) and (model is defined and model is not null) %}
+                            <h1>{{ service.name }} {{ model.brand.nameRu }} {{ model.nameRu }} ({{ model.brand.name }} {{ model.nameEn }}) в Москве</h1>
+                        {% elseif (service is defined and service is not null) and (brand is defined and brand is not null) %}
+                            <h1>{{ service.name }} {{ brand.nameRu }} ({{ brand.name }}) в Москве</h1>
+                        {% elseif model is defined and model is not null %}
+                            <h1>Ремонт и сервис {{ model.brand.name}} {{ model.nameEn }} ({{ model.brand.nameRu }} {{ model.nameRu }}) в Москве</h1>
+                        {% else %}
+                        <h1>Сервис Грац-Авто <br />Мерседес в Москве</h1>
+                        {% endif %}
+                    </div>
+                    <div class="main-top__rigth">
+                        <p>
+                            <img src="{{ asset('img/main/done_all.svg') }}" alt="" /><span
+                            >Гарантия до 3 лет</span
+                            >
+                        </p>
+                        <p>
+                            <img src="{{ asset('img/main/done_all.svg') }}" alt="" /><span
+                            >Оригинальные запчасти</span
+                            >
+                        </p>
+                        <p>
+                            <img src="{{ asset('img/main/done_all.svg') }}" alt="" /><span
+                            >Честная стоимость</span
+                            >
+                        </p>
+                    </div>
+                </div>
+                <div class="main-bottom">
+                    <div class="main-bottom__links">
+                        <div class="main-bottom__link">
+                            <a href="#">Заказать диагностику</a>
+                        </div>
+                        <div class="main-bottom__link">
+                            <a href="#">Нужен эвакуатор</a>
+                        </div>
+                        <div class="main-bottom__link">
+                            <a href="#" class="open-form-btn">Получить консультацию</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

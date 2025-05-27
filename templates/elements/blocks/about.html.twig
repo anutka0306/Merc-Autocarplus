@@ -1,0 +1,111 @@
+<section>
+    <div class="about">
+        <div class="container">
+            <div class="about__wrapper">
+                <div class="about__left">
+                    <div class="about__title">
+                        <h2>
+                            о компании Грац-Авто<br />
+                            Мерседес в москве
+                        </h2>
+                    </div>
+                    <div class="about__items">
+                        <div class="about__item">
+                            <div class="about__img">
+                                <img src="{{ asset('img/about/about.png') }}" alt="" />
+                            </div>
+                            <div class="about__text">
+                                <h3>СПЕЦИАЛИЗИРОВАННЫЙ СЕРВИС Mercedes-Benz</h3>
+                                <p>
+                                    Техцентр АМ+ является сертифицированным автосервисом
+                                    Мерседес Бенс по системе сертификации «ГОСТ Р» в Москве.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="about__item">
+                            <div class="about__img">
+                                <img src="{{ asset('img/about/about.png') }}" alt="" />
+                            </div>
+                            <div class="about__text">
+                                <h3>ЗАПЧАСТИ В НАЛИЧИИ</h3>
+                                {% if model is defined and model is not null %}
+                                    <p>
+                                        Большой склад автозапчастей и большинство уже в наличии
+                                        и по приятным ценам. Так же действую скидки на запчасти
+                                        {{ model.brand.name}} {{ model.nameEn }} от 10 до 20%.
+                                    </p>
+                                {% else %}
+                                <p>
+                                    Большой склад автозапчастей и большинство уже в наличии
+                                    и по приятным ценам. Так же действую скидки на запчасти
+                                    Мерседес Бенс от 10 до 20%.
+                                </p>
+                                {% endif %}
+                                <span>Скидки на запчасти Mercedes-Benz 20%</span>
+                            </div>
+                        </div>
+                        <div class="about__item">
+                            <div class="about__img">
+                                <img src="{{ asset('img/about/about.png') }}" alt="" />
+                            </div>
+                            <div class="about__text">
+                                <h3>СТОИМОСТЬ ДО НАЧАЛА РАБОТ</h3>
+                                {% if model is defined and model is not null %}
+                                    <p>
+                                        Стоимость на ремонт {{ model.brand.nameRu }} {{ model.nameRu }} оговаривается после
+                                        диагностики, цена не меняется в ходе работы.
+                                    </p>
+                                {% else %}
+                                <p>
+                                    Стоимость на ремонт Mercedes-Benz оговаривается после
+                                    диагностики, цена не меняется в ходе работы.
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="about__item">
+                            <div class="about__img">
+                                <img src="{{ asset('img/about/about.png') }}" alt="" />
+                            </div>
+                            <div class="about__text">
+                                <h3>100% ГАРАНТИЯ</h3>
+                                <p>
+                                    На все виды работы мы предоставляем гарантию до 900 дней
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__rigth">
+                    <div class="swiper aboutSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="{{ asset('img/about/team.png') }}" alt="" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ asset('img/about/team.png') }}" alt="" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ asset('img/about/team.png') }}" alt="" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ asset('img/about/team.png') }}" alt="" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ asset('img/about/team.png') }}" alt="" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ asset('img/about/team.png') }}" alt="" />
+                            </div>
+                        </div>
+                        <div class="about-btn">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

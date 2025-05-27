@@ -1,0 +1,36 @@
+{% if servicesCategory is not empty %}
+<section>
+    <div class="services">
+        <div class="container">
+            <div class="services__wrapper">
+                <div class="services__title title">
+                    {% if model is defined and model is not null %}
+                        <h2>Услуги и цены автосервиса Грац-Авто {{ model.brand.nameRu }} {{ model.nameRu }} </h2>
+                    {% else %}
+                    <h2>
+                        Услуги и цены Сервиса<br />
+                        Грац-Авто Мерседес в москве
+                    </h2>
+                    {% endif %}
+                </div>
+                <div class="services__items">
+                    {% for key, category in servicesCategory %}
+                    <div class="services__item">
+                        <p>{{ category.name }}</p>
+                        <div class="services__img">
+                            <img src="{{ asset('img/services/' ~ (key + 1) ~ '.png') }}"
+                                 alt="{{ category.name }}"
+                                 onerror="this.onerror=null;this.src='{{ asset('img/services/default.png') }}';" />
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div class="services__btn">
+                    <button>Показать все</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

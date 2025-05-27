@@ -1,0 +1,59 @@
+{% if servicesCategory is not empty %}
+<section>
+    <div class="price">
+        <div class="container">
+            <div class="price__wrapper">
+                <div class="price__title">
+                    {% if (service is defined and service is not null) and (model is defined and model is not null) %}
+                        <h2>{{ service.name}} {{ model.brand.name}} {{ model.nameEn }} ({{ model.brand.nameRu }} {{ model.nameRu }})</h2>
+                    {% elseif (service is defined and service is not null) and (brand is defined and brand is not null) %}
+                        <h2>{{ service.name }} {{ brand.name}} ({{ brand.nameRu }})</h2>
+                    {% elseif model is defined and model is not null %}
+                        <h2>Ремонт {{ model.brand.name}} {{ model.nameEn }} ({{ model.brand.nameRu }} {{ model.nameRu }}) цена</h2>
+                    {% else %}
+                        <h2>прайс лист на услуги</h2>
+                    {% endif %}
+                </div>
+                <div class="price__box">
+                    <div class="price__tabs">
+                        {% for key, category in servicesCategory %}
+                        <button class="price__tab" data-tab="tab{{ key + 1 }}">
+                            <img src="{{ asset('img/price/' ~ (key + 1) ~ '.png') }}"
+                                 alt="{{ category.name }}"
+                                 onerror="this.onerror=null;this.src='{{ asset('img/price/default.png') }}';" />
+                            <p>{{ category.name }}</p>
+                        </button>
+                        {% endfor %}
+                    </div>
+
+                    <div class="price__list">
+                        {% for categoryKey, category in servicesCategory %}
+                            <div class="price__block" data-tab-content="tab{{ categoryKey + 1 }}">
+                                {% set services = category.services|default([]) %}
+                                {% set columns = services|batch((services|length / 3)|round(0, 'ceil')) %}
+
+                                {% for column in columns %}
+                                    <div class="price__col">
+                                        {% for service in column %}
+                                            <div class="price__row">
+                                                {% if model is defined and model is not null %}
+                                                    <p><a href="{{ path('model_service_page', {'modelSlug': model.slug, 'serviceSlug': service.slug}) }}">{{ service.name }}</a></p>
+                                                    <span>От {{ service.basePrice }} ₽</span>
+                                                {% else %}
+                                                    <p><a href="{{ path('main_service', {'slug': service.slug}) }}">
+                                                        {{ service.name }}
+                                                        </a></p>
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

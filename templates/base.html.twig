@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{{ meta.title ?? 'Сайт по ремонту авто' }}{% endblock %}</title>
+        {% block description %}<meta name="description" content="{{ meta.description ?? 'Описание по умолчанию' }}">{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+                rel="stylesheet"
+                href="https://unpkg.com/swiper/swiper-bundle.min.css"
+        />
+        <link rel="stylesheet" href="{{ asset('css/main.min.css') }}" />
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script defer src="{{ asset('js/jquery.mask.min.js') }}"></script>
+            <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            <script defer src="{{ asset('js/main.min.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <main>
+            {% block header %}{% endblock %}
+            {% block body %}{% endblock %}
+        </main>
+    </body>
+</html>
