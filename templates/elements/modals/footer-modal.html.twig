@@ -1,25 +1,56 @@
-<div class="feedback-modal">
+<div class="feedback-modal" id="feedback-form">
     <div class="feedback-content">
         <h2>Оставить заявку</h2>
         <form>
             <div class="form__top">
-                <input type="text" placeholder="Ваше имя" />
-                <input type="tel" placeholder="Номер телефона" class="phone" />
+                <input type="text" placeholder="Ваше имя" name="username" required />
+                <input type="tel" placeholder="Номер телефона" class="phone" name="phone" required />
             </div>
             <div class="form__center">
                 <p>Какой сервис вам будет удобен?</p>
                 <label>
-                    <input type="radio" name="address" checked />
+                    <input type="radio" name="service" value="1-й Силикатный проезд, 19/2с26" checked />
                     <span>1-й Силикатный проезд, 19/2с26</span>
                 </label>
                 <label>
-                    <input type="radio" name="address" />
+                    <input type="radio" name="service" name="service" value="ул. Ибрагимова 31 ас4" />
                     <span>ул. Ибрагимова 31 ас4</span>
                 </label>
             </div>
             <div class="form__bottom">
-                <button>Отправить</button>
+                <button type="submit">Отправить</button>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    document.getElementById('feedback-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        // Добавим URL страницы для Telegram
+        formData.append('page', window.location.pathname);
+
+        fetch('/send_mail', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Заявка успешно отправлена!');
+                    form.reset();
+                } else {
+                    alert('Произошла ошибка. Попробуйте позже.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Ошибка при отправке формы.');
+            });
+    });
+</script>
+
