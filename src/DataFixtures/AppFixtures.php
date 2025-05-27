@@ -33,9 +33,9 @@ class AppFixtures extends Fixture
 
         /* Brand */
         $brand = new Brand();
-        $brand->setName('Mercedes');
+        $brand->setName('Mercedes-Benz');
         $brand->setSlug('mercedes');
-        $brand->setNameRu('Мерседес');
+        $brand->setNameRu('Мерседес-Бенц');
         $manager->persist($brand);
 
         /* Models */
@@ -633,34 +633,6 @@ class AppFixtures extends Fixture
                           сервисе, замена масла и фильтра #BRAND_EN# #MODEL_EN# бесплатно',
                 'active' => true,
             ],
-            [
-                'title' => 'скидка 25% по воскресеньям',
-                'description' => '',
-                'active' => true,
-            ],
-            [
-                'title' => 'бесплатная диагностика подвески при первом посещении',
-                'description' => '',
-                'active' => true,
-            ],
-            [
-                'title' => 'чистка двигателя грецких орехом',
-                'description' => 'Все автомобили c дизельными двигателями системы
-                          Common Rail + промывка и ремонт форсунок',
-                'active' => true,
-            ],
-            [
-                'title' => 'бесплатное хранение шин',
-                'description' => 'При проведении у нас шиномонтажа, хранение шин
-                          бесплатно',
-                'active' => true,
-            ],
-            [
-                'title' => 'Бесплатная замена масла и фильтров',
-                'description' => 'При покупке масла и масляного фильтра в нашем
-                          сервисе, замена масла и фильтра бесплатно',
-                'active' => true,
-            ]
         ];
 
         foreach ($promoData as $promoItem) {
