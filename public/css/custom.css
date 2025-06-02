@@ -1,3 +1,73 @@
 .price__row--highlighted p a {
     color: #BF020F;
 }
+.main-top__left h1 {
+    font-size: 32px;
+}
+
+.button-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* фон для блока, можно изменить */
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.button {
+    border-radius: 40px;
+    padding: 15px 40px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    width: 300px;
+}
+
+/* Тёмная кнопка */
+.button--dark {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid transparent;
+}
+
+.button--dark:hover {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+/* Светлая кнопка */
+.button--light {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.button--light:hover {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+}
+
+.footer .feedback-content {
+    position: relative;
+}
+
+.footer .feedback-content button.feedback-close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 30px;
+    margin-top: 0;
+}
+
+

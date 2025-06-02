@@ -1,6 +1,8 @@
 <div class="feedback-modal" id="feedback-form">
     <div class="feedback-content">
         <h2>Оставить заявку</h2>
+        <button class="feedback-close" type="button" aria-label="Закрыть форму">×</button>
+
         <form>
             <div class="form__top">
                 <input type="text" placeholder="Ваше имя" name="username" required />
@@ -25,6 +27,28 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const feedbackForm = document.querySelector(".feedback-modal");
+        const phoneInput = feedbackForm.querySelector("input.phone");
+        const closeBtn = feedbackForm.querySelector(".feedback-close");
+
+        closeBtn.addEventListener('click', function () {
+            feedbackForm.classList.remove("active");
+            document.body.classList.remove("lock");
+        });
+
+        // При открытии модалки — сразу фокус на поле телефона
+        phoneInput.focus();
+
+        // При клике по любому месту формы — фокус на начало поля телефона
+        feedbackForm.addEventListener("click", function () {
+            phoneInput.focus();
+            phoneInput.setSelectionRange(0, 0); // курсор в начало
+        });
+    });
+
+
+
     document.getElementById('feedback-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -52,5 +76,6 @@
                 alert('Ошибка при отправке формы.');
             });
     });
+
 </script>
 

@@ -129,7 +129,7 @@ class AppFixtures extends Fixture
             [
                 'category' => ['name' => 'Диагностика', 'slug' => 'diagnostika'],
                 'services' => [
-                    ['name' => 'Диагностика ходовой части', 'slug' => 'diagnostika-khodovoy-chasti', 'base_price' => 750],
+                    ['name' => 'Диагностика ходовой части', 'slug' => 'diagnostika-hodovoy-chasti', 'base_price' => 750],
                     ['name' => 'Диагностика систем', 'slug' => 'diagnostika-sistem', 'base_price' => 750],
                     ['name' => 'Комплексная диагностика', 'slug' => 'kompleksnaya-diagnostika', 'base_price' => 3000],
                     ['name' => 'Компьютерная диагностика авто', 'slug' => 'kompyuternaya-diagnostika-avto', 'base_price' => 750],

@@ -23,7 +23,7 @@
                                         {% if models[index] is defined %}
                                             {% set model = models[index] %}
                                             <div class="repair__item">
-                                                <a href="/remont-i-servis-{{ model.slug }}">
+                                                <a href="/remont-i-servis-{{ model.slug }}/">
                                                     <img src="{{ asset(model.image) }}" alt="" />
                                                     <p>{{ model.nameRu }}</p>
                                                 </a>

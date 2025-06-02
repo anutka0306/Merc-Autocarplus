@@ -15,11 +15,11 @@ class MetaTemplates
         ],
         'service_model' => [
             'title' => '#SERVICE_NAME# #BRAND_RU# #MODEL_RU# (#BRAND_EN# #MODEL_EN#) в Москве | Грац-Авто Мерседес',
-            'description' => 'Ремонт #BRAND_EN# #MODEL_EN# (#BRAND_RU# #MODEL_RU#) в Москве. ⭐ Профильный сервис Грац-Авто Мерседес. ✔️ Скидки до 25%. ✔️ до 2 лет гарантии. ✔️ Запчасти в наличии.',
+            'description' => '#SERVICE_NAME# #BRAND_EN# #MODEL_EN# (#BRAND_RU# #MODEL_RU#) в Москве. ⭐ Профильный сервис Грац-Авто Мерседес. ✔️ Скидки до 25%. ✔️ до 2 лет гарантии. ✔️ Запчасти в наличии.',
         ],
         'service' => [
             'title' => '#SERVICE_NAME# #BRAND_RU# (#BRAND_EN#) в Москве | Грац-Авто Мерседес',
-            'description' => 'Ремонт #BRAND_EN# (#BRAND_RU#) в Москве. ⭐ Профильный сервис Грац-Авто Мерседес. ✔️ Скидки до 25%. ✔️ до 2 лет гарантии. ✔️ Запчасти в наличии.',
+            'description' => '#SERVICE_NAME# #BRAND_EN# (#BRAND_RU#) в Москве. ⭐ Профильный сервис Грац-Авто Мерседес. ✔️ Скидки до 25%. ✔️ до 2 лет гарантии. ✔️ Запчасти в наличии.',
         ],
     ];
 

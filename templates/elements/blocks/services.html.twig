@@ -16,14 +16,19 @@
                 </div>
                 <div class="services__items">
                     {% for key, category in servicesCategory %}
-                    <div class="services__item">
-                        <p>{{ category.name }}</p>
-                        <div class="services__img">
-                            <img src="{{ asset('img/services/' ~ (key + 1) ~ '.png') }}"
-                                 alt="{{ category.name }}"
-                                 onerror="this.onerror=null;this.src='{{ asset('img/services/default.png') }}';" />
-                        </div>
-                    </div>
+                        {% if model is defined and model is not null %}
+                            <a href="{{ path('model_service_page', {'modelSlug': model.slug, 'serviceSlug': category.slug}) }}" class="services__item">
+                         {% else %}
+                             <a href="{{ path('main_service', {'slug': category.slug}) }}" class="services__item">
+                         {% endif %}
+                                <p>{{ category.name }}</p>
+                                <div class="services__img">
+                                    <img src="{{ asset('img/services/' ~ (key + 1) ~ '.png') }}"
+                                         alt="{{ category.name }}"
+                                         onerror="this.onerror=null;this.src='{{ asset('img/services/default.png') }}';" />
+                                </div>
+                            </a>
+
                     {% endfor %}
 
                 </div>

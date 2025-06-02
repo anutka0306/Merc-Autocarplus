@@ -39,7 +39,14 @@ final class PageController extends AbstractController
         ]);
 
         if (!$service) {
-            throw $this->createNotFoundException('Услуга для модели не найдена');
+            $category = $serviceCategoryRepository->findOneBy([
+                'slug' => $serviceSlug,
+            ]);
+            if($category) {
+                $service = $category;
+            } else {
+                throw $this->createNotFoundException('Услуга для модели не найдена');
+            }
         }
 
         $meta = $generator->generate($template, [
@@ -111,55 +118,43 @@ final class PageController extends AbstractController
         $brand = $brand = $brandRepository->findOneBy([]);
         $template = $templates->getTemplate('service');
 
-        if (!$service) {
-            throw $this->createNotFoundException('Услуга не найдена');
-        }
-
-        $meta = $generator->generate($template, [
-            'brand_en' => $brand->getName(),
-            'brand_ru' => $brand->getNameRu(),
-            'service_name' => $service->getName(),
-        ]);
-        return $this->render('service/index.html.twig', [
-            'service' => $service,
-            'promotions' => $promotions,
-            'servicesCategory' => $serviceCategory,
-            'brand' => $brand,
-            'meta' => $meta,
-        ]);
-    }
-
-    /*#[Route('/remont-i-servis-mercedes-benz/{slug}/', name: 'page_resolver')]*/
-    /*public function resolvePage(
-        string $slug,
-        ModelRepository $modelRepo,
-        ServiceRepository $serviceRepo,
-        ServiceCategoryRepository $serviceCategoryRepository,
-        PromotionRepository $promotionRepository
-    ): Response {
-        $serviceCategory = $serviceCategoryRepository->findAllWithServices();
-        $promotions = $promotionRepository->findBy(['active' => true]);
-        // Проверка: модель?
-        $model = $modelRepo->findOneBy(['slug' => $slug]);
-        if ($model) {
-            return $this->render('model/show.html.twig', [
-                'model' => $model,
-                'promotions' => $promotions,
-                'servicesCategory' => $serviceCategory,
-            ]);
-        }
-
-        // Услуга без модели
-        $service = $serviceRepo->findOneBy([
-            'slug' => $slug,
-            'model' => null,
-        ]);
         if ($service) {
+            $meta = $generator->generate($template, [
+                'brand_en' => $brand->getName(),
+                'brand_ru' => $brand->getNameRu(),
+                'service_name' => $service->getName(),
+            ]);
+
             return $this->render('service/index.html.twig', [
                 'service' => $service,
+                'promotions' => $promotions,
+                'servicesCategory' => $serviceCategory,
+                'brand' => $brand,
+                'meta' => $meta,
             ]);
         }
 
-        throw $this->createNotFoundException('Страница не найдена');
-    }*/
+        $category = $serviceCategoryRepository->findOneBy([
+            'slug' => $slug,
+        ]);
+
+        if($category) {
+            $meta = $generator->generate($template, [
+                'brand_en' => $brand->getName(),
+                'brand_ru' => $brand->getNameRu(),
+                'service_name' => $category->getName(),
+            ]);
+
+            return $this->render('category/index.html.twig', [
+                'service' => $category,
+                'promotions' => $promotions,
+                'servicesCategory' => $serviceCategory,
+                'brand' => $brand,
+                'meta' => $meta,
+            ]);
+        }
+        throw $this->createNotFoundException('Услуга или категория не найдена');
+
+    }
+
 }

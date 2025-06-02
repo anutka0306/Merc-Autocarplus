@@ -1,6 +1,6 @@
 <div class="header-top">
-    <div class="header-logo">
-        <a href="{{ path('app_home') }}"><img src="{{ asset('img/header/logo.png') }}" alt="" /></a>
+    <div class="header-logo" style="width: 204px;">
+        <a href="{{ path('app_home') }}"><img src="{{ asset('img/header/logo.png') }}" alt="" style="display: none;" /></a>
     </div>
     <div class="header-contact">
         <div class="header-contact__col">
@@ -45,14 +45,15 @@
         </div>
         <nav class="header-menu__nav">
             <ul class="header-menu__list">
+                <li class="header-menu__link"><a href="{{ path('app_home') }}">Главная</a></li>
                 <li class="header-menu__link"><a href="{{ path('app_home') }}#about">О компании</a></li>
                 <li class="header-menu__link"><a href="{{ path('app_home') }}#services">Услуги</a></li>
                 <li class="header-menu__link">
                     <a href="">Корпоративным клиентам</a>
                 </li>
-                <li class="header-menu__link"><a href="{{ path('app_home') }}#reviews">Отзывы</a></li>
+                {#<li class="header-menu__link"><a href="{{ path('app_home') }}#reviews">Отзывы</a></li>#}
                 <li class="header-menu__link"><a href="{{ path('app_home') }}#certificates">Сертификаты</a></li>
-                <li class="header-menu__link"><a href="">Фотогалерея</a></li>
+                {#<li class="header-menu__link"><a href="">Фотогалерея</a></li>#}
                 <li class="header-menu__link"><a href="{{ path('app_home') }}#price">Цены</a></li>
                 <li class="header-menu__link"><a href="{{ path('app_home') }}#contacts">Контакты</a></li>
             </ul>
