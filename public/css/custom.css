@@ -74,4 +74,28 @@
     padding-top: 50px;
 }
 
+/* Header mobile button */
+.header-feedback__mobile {
+    display: none;
+}
+.header-feedback__mobile button {
+    color: #fff;
+    font-family: IBMPlexSans-Medium;
+    font-size: 11px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    padding: 8px 11px;
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    background-color: rgba(0,0,0,0);
+}
+
+@media (max-width: 991px) {
+    .header-feedback__mobile {
+        display: block;
+    }
+}
+
 

@@ -3,13 +3,18 @@
         <a href="{{ path('app_home') }}"><img src="{{ asset('img/header/logo.png') }}" alt="" style="display: none;" /></a>
     </div>
     <div class="header-contact">
-        <div class="header-contact__col">
+        {#<div class="header-contact__col">
             <div class="header-contact__img">
                 <img src="{{ asset('img/header/geo.svg') }}" alt="" />
             </div>
             <div class="header-contact__tell">
                 <a href="tel:+74951912132"><span>+7 (495) 191-21-32</span></a>
                 <p>ул. Ибрагимова 31 ас4</p>
+            </div>
+        </div>#}
+        <div class="header-contact__col" style="min-width: 128px;">
+            <div class="header-feedback__mobile">
+                <button href="#" class="open-form-btn">Получить консультацию</button>
             </div>
         </div>
         <div class="header-contact__col">

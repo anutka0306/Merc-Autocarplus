@@ -8,7 +8,7 @@
                 <input type="text" placeholder="Ваше имя" name="username" required />
                 <input type="tel" placeholder="Номер телефона" class="phone" name="phone" required />
             </div>
-            <div class="form__center">
+            {#<div class="form__center">
                 <p>Какой сервис вам будет удобен?</p>
                 <label>
                     <input type="radio" name="service" value="1-й Силикатный проезд, 19/2с26" checked />
@@ -18,7 +18,7 @@
                     <input type="radio" name="service" name="service" value="ул. Ибрагимова 31 ас4" />
                     <span>ул. Ибрагимова 31 ас4</span>
                 </label>
-            </div>
+            </div>#}
             <div class="form__bottom">
                 <button type="submit">Отправить</button>
             </div>
@@ -40,12 +40,22 @@
         // При открытии модалки — сразу фокус на поле телефона
         phoneInput.focus();
 
-        // При клике по любому месту формы — фокус на начало поля телефона
-        feedbackForm.addEventListener("click", function () {
-            phoneInput.focus();
-            phoneInput.setSelectionRange(0, 0); // курсор в начало
+        // При клике по форме — фокус на телефоне, но не если клик был по инпуту или кнопке
+        feedbackForm.addEventListener("click", function (event) {
+            const target = event.target;
+
+            if (
+                target.tagName !== "INPUT" &&
+                target.tagName !== "BUTTON" &&
+                !target.closest("button") &&
+                !target.closest("input")
+            ) {
+                phoneInput.focus();
+                phoneInput.setSelectionRange(0, 0); // курсор в начало
+            }
         });
     });
+
 
 
 
