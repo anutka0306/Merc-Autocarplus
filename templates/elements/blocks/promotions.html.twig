@@ -1,4 +1,5 @@
 {% if promotions is defined and promotions is not empty %}
+    <a id="promo"></a>
     {% set slides = promotions|batch(6) %}
     <section>
         <div class="promotion">

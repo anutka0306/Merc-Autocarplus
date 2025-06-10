@@ -15,6 +15,13 @@ use App\Repository\ServiceCategoryRepository;
 
 final class PageController extends AbstractController
 {
+    #[Route('korporativnym-klientam', name: 'korporativnym_klientam')]
+    public function corporateClientsPage(): Response
+    {
+        return $this->render('page/corporate-clients.html.twig', [
+        ]);
+    }
+
     #[Route('/remont-i-servis-{modelSlug}/{serviceSlug}/', name: 'model_service_page')]
     public function modelServicePage(
         string $modelSlug,
