@@ -117,6 +117,54 @@
     margin-top: 30px;
 }
 
+.gallery-slider {
+    width: 100%;
+    height: auto;
+}
+
+.gallery__img {
+    width: 100%;
+    height: 250px; /* или auto */
+    object-fit: cover;
+    display: block;
+}
+.gallery__inner {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.gallery__swiper-button-prev,
+.gallery__swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background-size: 16px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* левая кнопка */
+.gallery__swiper-button-prev {
+    left: -50px;
+}
+.gallery__swiper-button-prev svg, .gallery__swiper-button-next svg {
+    color: white;
+}
+.gallery__swiper-button-prev svg {
+    transform: rotate(180deg);
+}
+
+
+/* правая кнопка */
+.gallery__swiper-button-next {
+    right: -50px;
+}
+
+
 @media (max-width: 991px) {
     .header-feedback__mobile {
         display: block;

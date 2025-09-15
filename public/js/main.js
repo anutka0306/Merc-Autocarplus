@@ -114,6 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
     breakpoints: { 991: { slidesPerView: 3, spaceBetween: 15 }, 768: { slidesPerView: 2, spaceBetween: 15 }, 576: { slidesPerView: 2, spaceBetween: 10 }, 400: { slidesPerView: 2, spaceBetween: 10 }, 375: { slidesPerView: 1, spaceBetween: 10 } },
   });
 
+
+
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const target = tab.dataset.tab;

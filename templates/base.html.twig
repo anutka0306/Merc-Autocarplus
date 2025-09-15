@@ -12,6 +12,8 @@
         />
         <link rel="stylesheet" href="{{ asset('css/main.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
         {% block stylesheets %}
         {% endblock %}
 
@@ -52,5 +54,26 @@
             {% block header %}{% endblock %}
             {% block body %}{% endblock %}
         </main>
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper('.gallery-slider', {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: '.gallery__swiper-button-next',
+                    prevEl: '.gallery__swiper-button-prev',
+                },
+                breakpoints: {
+                    320: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1200: { slidesPerView: 3 },
+                }
+            });
+        });
+</script>
+
     </body>
 </html>
