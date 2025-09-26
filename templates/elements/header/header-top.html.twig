@@ -59,17 +59,17 @@
         <nav class="header-menu__nav">
             <ul class="header-menu__list">
                 <li class="header-menu__link"><a href="{{ path('app_home') }}">Главная</a></li>
-                <li class="header-menu__link"><a href="{{ path('app_home') }}#about">О компании</a></li>
-                <li class="header-menu__link"><a href="{{ path('app_home') }}#services">Услуги</a></li>
+                <li class="header-menu__link"><a href="{{ path('about') }}">О компании</a></li>
+                <li class="header-menu__link"><a href="{{ path('services') }}">Услуги</a></li>
                 <li class="header-menu__link">
                     <a href="{{ path('korporativnym_klientam') }}">Корпоративным клиентам</a>
                 </li>
                 {#<li class="header-menu__link"><a href="{{ path('app_home') }}#reviews">Отзывы</a></li>#}
-                <li class="header-menu__link"><a href="{{ path('app_home') }}#certificates">Сертификаты</a></li>
-                <li class="header-menu__link"><a href="{{ path('app_home') }}#promo">Наши акции</a></li>
+                <li class="header-menu__link"><a href="{{ path('certificates') }}">Сертификаты</a></li>
+                <li class="header-menu__link"><a href="{{ path('offers') }}">Наши акции</a></li>
                 {#<li class="header-menu__link"><a href="">Фотогалерея</a></li>#}
-                <li class="header-menu__link"><a href="{{ path('app_home') }}#price">Цены</a></li>
-                <li class="header-menu__link"><a href="{{ path('app_home') }}#contacts">Контакты</a></li>
+                <li class="header-menu__link"><a href="{{ path('prices') }}">Цены</a></li>
+                <li class="header-menu__link"><a href="{{ path('contacts') }}#contacts">Контакты</a></li>
             </ul>
         </nav>
         <div class="header-contact__col">
@@ -83,6 +83,9 @@
         </div>
         <div class="header-menu__feedback">
             <button class="open-form-btn">Получить консультацию</button>
+        </div>
+        <div class="header-menu__feedback">
+            <a class="navigator_menu_mobile_btn" href="yandexnavi://build_route_on_map?lat_to=55.768972&lon_to=37.510529" target="_blank">Построить маршрут</a>
         </div>
     </div>
 </div>

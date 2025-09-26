@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}Контакты Сервис Грац-Авто в Москве{% endblock %}
+{% block description %}<meta name="description" content="Контакты  автосервиса Сервис Грац-Авто">{% endblock %}
+
+        {% block header %}
+            {{ include('elements/header/header.html.twig') }}
+        {% endblock %}
+
+        {% block body %}
+            {{ include('elements/blocks/hero.html.twig', {h1: 'Контакты Сервис Грац-Авто'}) }}
+            {{ include('elements/footer/footer.html.twig') }}
+
+        {% endblock %}

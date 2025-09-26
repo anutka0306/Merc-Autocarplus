@@ -78,13 +78,29 @@
                 </div>#}
             </div>
             <div class="footer__rigth">
-                {#<iframe
-                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A1eb2a856320de4b8b4096743e9dfdac6ab09a8ee07cb5c8ae1f485a2ce66b8dc&amp;source=constructor"
-                        width="100%"
-                        frameborder="0"
-                        loading="lazy"
-                ></iframe>#}
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Af46dc269503fda9d3e6c12467e96bf5cee2a5707a3926b05161b059503495bf0&amp;source=constructor" width="100%" height="402" frameborder="0" loading="lazy"></iframe>
+                {# Desktop карта #}
+                <div class="map map-desktop d-none d-md-block"
+                     data-src="https://yandex.ru/map-widget/v1/?um=constructor%3Af46dc269503fda9d3e6c12467e96bf5cee2a5707a3926b05161b059503495bf0&amp;source=constructor"
+                     data-height="545">
+                    <img src="{{ asset('img/map-desktop.jpg') }}"
+                         alt="Карта"
+                         width="100%"
+                         height="545">
+                </div>
+
+                {# Mobile карта #}
+                <div class="map map-mobile d-block d-md-none"
+                     data-src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa458439279ccb6ceafff7bd81facd68af9f97f478735626fd2d69e8bbebf19d1&amp;source=constructor"
+                     data-height="300">
+                    <img src="{{ asset('img/map-mobile.jpg') }}"
+                         alt="Карта"
+                         width="100%"
+                         height="300">
+                </div>
+            </div>
+
+
+                {#<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Af46dc269503fda9d3e6c12467e96bf5cee2a5707a3926b05161b059503495bf0&amp;source=constructor" width="100%" height="402" frameborder="0" loading="lazy"></iframe>#}
             </div>
         </div>
     </div>
@@ -102,3 +118,36 @@
 
     {{ include('elements/modals/footer-modal.html.twig') }}
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const mapBlocks = document.querySelectorAll(".map");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const map = entry.target;
+                const src = map.dataset.src;
+                const height = map.dataset.height || "400";
+
+                if (!map.querySelector("iframe")) {
+                    const iframe = document.createElement("iframe");
+                    iframe.src = src;
+                    iframe.width = "100%";
+                    iframe.height = height;
+                    iframe.frameBorder = "0";
+                    iframe.loading = "lazy";
+
+                    map.innerHTML = "";
+                    map.appendChild(iframe);
+                }
+
+                observer.unobserve(map);
+            }
+        });
+    });
+
+    mapBlocks.forEach(map => observer.observe(map));
+});
+
+</script>

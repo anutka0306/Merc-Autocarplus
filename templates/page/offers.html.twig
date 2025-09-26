@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Акции Сервис Грац-Авто в Москве{% endblock %}
+{% block description %}<meta name="description" content="Акции  автосервиса Сервис Грац-Авто">{% endblock %}
+
+        {% block header %}
+            {{ include('elements/header/header.html.twig') }}
+        {% endblock %}
+
+        {% block body %}
+            {{ include('elements/blocks/hero.html.twig', {h1: 'Акции Сервис Грац-Авто'}) }}
+            {{ include('elements/blocks/promotions.html.twig') }}
+            {{ include('elements/footer/footer.html.twig') }}
+
+        {% endblock %}

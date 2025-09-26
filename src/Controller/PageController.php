@@ -22,6 +22,72 @@ final class PageController extends AbstractController
         ]);
     }
 
+    #[Route('about', name: 'about')]
+    public function aboutPage(): Response
+    {
+        return $this->render('page/about.html.twig', [
+        ]);
+    }
+
+    #[Route('advantages', name: 'advantages')]
+    public function advantagesPage(
+    ): Response
+    {
+        return $this->render('page/advantages.html.twig', [
+        ]);
+    }
+
+    #[Route('certificates', name: 'certificates')]
+    public function certificatesPage(): Response
+    {
+        return $this->render('page/certificates.html.twig', [
+        ]);
+    }
+
+    #[Route('contacts', name: 'contacts')]
+    public function contactsPage(): Response
+    {
+        return $this->render('page/contacts.html.twig', [
+        ]);
+    }
+
+    #[Route('offers', name: 'offers')]
+    public function offersPage(
+        PromotionRepository $promotionRepository,
+    ): Response
+    {
+        $promotions = $promotionRepository->findBy(['active' => true]);
+        return $this->render('page/offers.html.twig', [
+            'promotions' => $promotions,
+        ]);
+    }
+
+    #[Route('prices', name: 'prices')]
+    public function pricesPage(
+        ServiceRepository $serviceRepo,
+        ServiceCategoryRepository $serviceCategoryRepository,
+    ): Response
+    {
+        $serviceCategory = $serviceCategoryRepository->findAllWithServices();
+        return $this->render('page/prices.html.twig', [
+            'servicesCategory' => $serviceCategory,
+            'showAllCategories' => true,
+        ]);
+    }
+
+    #[Route('services', name: 'services')]
+    public function servicesPage(
+        ServiceRepository $serviceRepo,
+        ServiceCategoryRepository $serviceCategoryRepository,
+    ): Response
+    {
+        $serviceCategory = $serviceCategoryRepository->findAllWithServices();
+        return $this->render('page/services.html.twig', [
+            'servicesCategory' => $serviceCategory,
+            'showAllCategories' => true,
+        ]);
+    }
+
     #[Route('/remont-i-servis-{modelSlug}/{serviceSlug}/', name: 'model_service_page')]
     public function modelServicePage(
         string $modelSlug,
