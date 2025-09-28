@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /korporativnym-klientam
 Host: https://remont-servis-mercedes.ru/
+Clean-Param: etext
 Sitemap: https://remont-servis-mercedes.ru/sitemap.xml
